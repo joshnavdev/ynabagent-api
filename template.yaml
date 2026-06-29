@@ -133,6 +133,10 @@ Resources:
                 - s3:GetObject
                 - s3:HeadObject
               Resource: !Sub '${UploadBucket.Arn}/*'
+            - Effect: Allow
+              Action:
+                - s3:ListBucket
+              Resource: !GetAtt UploadBucket.Arn
         - DynamoDBCrudPolicy:
             TableName: !Ref YnabTokensTable
       Events:
