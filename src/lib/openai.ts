@@ -39,6 +39,8 @@ export async function extractTransactions(
     }),
   );
 
+  console.log(JSON.stringify({ event: 'prompt_sent', systemPrompt }));
+
   const completion = await client.chat.completions.parse({
     model: env.OPENAI_MODEL,
     messages: [
