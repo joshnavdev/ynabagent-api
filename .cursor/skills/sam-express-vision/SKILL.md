@@ -21,10 +21,10 @@ sequenceDiagram
     L->>S3: presigned PUT URL
     L-->>C: { key, uploadUrl }
     C->>S3: PUT screenshot bytes (direct)
-    C->>L: POST /generate { key }
-    L->>S3: HeadObject (verify exists) + presigned GET URL
+    C->>L: POST /generate { keys: [...] }
+    L->>S3: HeadObject per key (verify exists) + presigned GET URL per key
     L->>S3: GetObject ynab_memory.md (cached)
-    L->>AI: chat.completions.parse(image_url, zodResponseFormat)
+    L->>AI: chat.completions.parse(image_url[], zodResponseFormat)
     AI-->>L: { transactions: [...] }
     L->>L: applyConstraints (USD->PEN, category path) + re-validate
     L-->>C: { transactions: [...] }
@@ -34,14 +34,14 @@ sequenceDiagram
 
 1. `POST /uploads` with `{ contentType }` (an allowlisted image MIME type). The server generates the S3 key and returns `{ key, uploadUrl }`.
 2. Client `PUT`s the screenshot bytes directly to S3 using `uploadUrl`.
-3. `POST /generate` with `{ key }`. The server verifies the object exists, loads the raw `ynab_memory.md` text from S3, mints a presigned GET URL, calls `gpt-4o-mini`, re-validates the result, and returns `{ transactions: [...] }`.
+3. `POST /generate` with `{ keys }` (1-10 keys). The server verifies each object exists, loads the raw `ynab_memory.md` text from S3, mints a presigned GET URL per key, calls `gpt-4o-mini` with all images in one request, re-validates the result, and returns `{ transactions: [...] }`.
 
 ## Hard conventions (do not deviate)
 
 - **Single Lambda, internal Express routing.** All routes live in one Express app on one Lambda. Do NOT create a separate Lambda per route. API Gateway proxies `ANY /{proxy+}` to the function.
 - **Zod at every boundary.** Validate request bodies, the OpenAI response, and `process.env`. Re-validate the extracted transactions server-side before returning. Never trust unvalidated input.
 - **Server generates S3 keys.** Build the key as `uploads/${uuid}.${ext}`, where `ext` derives from the validated `contentType`. NEVER accept a client-supplied key for writes — it enables path traversal and overwrites.
-- **Image reaches the model via presigned GET URL.** Pass the S3 presigned GET URL as `image_url` to `gpt-4o-mini`. NEVER download image bytes into the Lambda.
+- **Image reaches the model via presigned GET URL.** Pass each S3 presigned GET URL as an `image_url` content part to `gpt-4o-mini`; `/generate` accepts multiple keys and sends all images in one request. NEVER download image bytes into the Lambda.
 - **Structured output via the SDK helper.** Use `client.chat.completions.parse` with `zodResponseFormat(Schema, 'name')`. Read `completion.choices[0].message.parsed`.
 - **Model from env.** Read the model from `OPENAI_MODEL` (default `gpt-4o-mini`). Do not hardcode the model string at call sites.
 - **Categories are constrained.** `category` is a full `Parent > Child` path from `src/categories.ts` (`ALLOWED_CATEGORIES`), the code-level source of truth. `ynab_memory.md` mirrors it.
@@ -76,8 +76,8 @@ const completion = await client.chat.completions.parse({
     {
       role: 'user',
       content: [
-        { type: 'text', text: 'Extract all transactions from this screenshot.' },
-        { type: 'image_url', image_url: { url: imageUrl } },
+        { type: 'text', text: 'Extract all transactions from these screenshots.' },
+        ...imageUrls.map((url) => ({ type: 'image_url' as const, image_url: { url } })),
       ],
     },
   ],

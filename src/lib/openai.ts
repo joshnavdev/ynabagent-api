@@ -26,7 +26,7 @@ function buildSystemPrompt(memory: string): string {
 }
 
 export async function extractTransactions(
-  imageUrl: string,
+  imageUrls: string[],
   memory: string,
 ): Promise<Transaction[]> {
   const systemPrompt = buildSystemPrompt(memory);
@@ -48,8 +48,11 @@ export async function extractTransactions(
       {
         role: 'user',
         content: [
-          { type: 'text', text: 'Extract all transactions from this screenshot.' },
-          { type: 'image_url', image_url: { url: imageUrl } },
+          { type: 'text', text: 'Extract all transactions from these screenshots.' },
+          ...imageUrls.map((url) => ({
+            type: 'image_url' as const,
+            image_url: { url },
+          })),
         ],
       },
     ],

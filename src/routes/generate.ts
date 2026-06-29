@@ -10,20 +10,21 @@ generateRouter.post(
   '/',
   (req: Request, res: Response, next: NextFunction): void => {
     void (async () => {
-      const { key } = GenerateRequestSchema.parse(req.body);
+      const { keys } = GenerateRequestSchema.parse(req.body);
 
-      const exists = await objectExists(key);
-      if (!exists) {
-        res.status(404).json({ error: 'Object not found in S3' });
+      const existence = await Promise.all(keys.map(objectExists));
+      const missing = keys.filter((_, i) => !existence[i]);
+      if (missing.length > 0) {
+        res.status(404).json({ error: 'Object(s) not found in S3', missing });
         return;
       }
 
-      const [url, memory] = await Promise.all([
-        createDownloadUrl(key),
+      const [urls, memory] = await Promise.all([
+        Promise.all(keys.map(createDownloadUrl)),
         getMemory(),
       ]);
 
-      const raw = await extractTransactions(url, memory);
+      const raw = await extractTransactions(urls, memory);
 
       const validation = TransactionSchema.array().safeParse(raw);
       if (!validation.success) {

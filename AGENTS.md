@@ -13,15 +13,15 @@ sequenceDiagram
     participant S3 as S3 Bucket
     participant AI as gpt-4o-mini
 
-    C->>L: POST /uploads { contentType }
-    L->>L: Zod validate, server-generated key (uuid)
-    L->>S3: presigned PUT URL
-    L-->>C: { key, uploadUrl }
-    C->>S3: PUT image bytes (direct)
-    C->>L: POST /generate { key }
-    L->>S3: HeadObject (verify exists) + presigned GET URL
+ C->>L: POST /uploads { contentType }
+ L->>L: Zod validate, server-generated key (uuid)
+ L->>S3: presigned PUT URL
+ L-->>C: { key, uploadUrl }
+ C->>S3: PUT image bytes (direct)
+ C->>L: POST /generate { keys: [...] }
+ L->>S3: HeadObject per key (verify exists) + presigned GET URL per key
     L->>S3: GetObject ynab_memory.md (cached)
-    L->>AI: chat.completions.parse(image_url, zodResponseFormat)
+    L->>AI: chat.completions.parse(image_url[], zodResponseFormat)
     AI-->>L: { transactions: [...] }
     L->>L: applyConstraints (USD->PEN, category path) + re-validate
     L-->>C: { transactions: [...] }
@@ -108,7 +108,7 @@ These are enforced by the project skill at `.cursor/skills/sam-express-vision/SK
 - Single Lambda with internal Express routing — not one Lambda per route.
 - Validate every boundary (request bodies, OpenAI response, env) with Zod, and re-validate the extracted transactions server-side before returning.
 - The server generates S3 keys; never trust a client-supplied key for writes.
-- Pass images to `gpt-4o-mini` via a presigned GET URL (`image_url`); never download bytes into the Lambda.
+- Pass images to `gpt-4o-mini` via a presigned GET URL (`image_url`), one content part per image; `/generate` accepts multiple keys and sends all images in one request. Never download bytes into the Lambda.
 - Structured output via `chat.completions.parse` + `zodResponseFormat`.
 - `category` must be a full `Parent > Child` path from `src/categories.ts`; this is the code-level source of truth and `ynab_memory.md` mirrors it.
 - Extend domain rules in `src/constraints.ts`: add a string to `PROMPT_RULES`. The model applies all rules (including USD->PEN conversion); there is no code-side post-processing pipeline.

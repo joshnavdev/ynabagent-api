@@ -12,7 +12,10 @@ export const UploadRequestSchema = z.object({
 });
 
 export const GenerateRequestSchema = z.object({
-  key: z.string().regex(/^uploads\/[\w-]+\.(png|jpg|webp)$/),
+  keys: z
+    .array(z.string().regex(/^uploads\/[\w-]+\.(png|jpg|webp)$/))
+    .min(1)
+    .max(10),
 });
 
 export const TransactionSchema = z.object({
@@ -35,7 +38,7 @@ export const TransactionSchema = z.object({
   category: z
     .enum(ALLOWED_CATEGORIES)
     .describe(
-      'Chosen ONLY from the allowed category list. Always the full "Parent > Child" path. Never invent one',
+      'Chosen ONLY from the allowed category list. Never invent one',
     ),
   confidence: z
     .enum(['high', 'low'])
