@@ -4,9 +4,7 @@ import { ZodError } from 'zod';
 import { uploadsRouter } from './routes/uploads.js';
 import { generateRouter } from './routes/generate.js';
 import { ynabAuthRouter } from './routes/ynab-auth.js';
-import { ynabRouter } from './routes/ynab.js';
 import { plansRouter } from './routes/plans.js';
-import { pushRouter } from './routes/push.js';
 
 export const app = express();
 
@@ -20,9 +18,7 @@ app.get('/health', (_req: Request, res: Response): void => {
 app.use('/uploads', uploadsRouter);
 app.use('/generate', generateRouter);
 app.use('/auth/ynab', ynabAuthRouter);
-app.use('/ynab', ynabRouter);
-app.use('/plans', plansRouter);
-app.use('/transactions/push', pushRouter);
+app.use('/ynab/plans', plansRouter);
 
 function hasStatusCode(err: unknown): err is Error & { statusCode: number } {
   return err instanceof Error && 'statusCode' in err && typeof err.statusCode === 'number';
