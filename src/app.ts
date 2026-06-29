@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express, { type Request, type Response, type NextFunction } from 'express';
 import { ZodError } from 'zod';
 import { uploadsRouter } from './routes/uploads.js';
@@ -8,6 +9,7 @@ import { pushRouter } from './routes/push.js';
 
 export const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/health', (_req: Request, res: Response): void => {

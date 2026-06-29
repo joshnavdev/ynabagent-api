@@ -20,6 +20,7 @@
     "@aws-sdk/lib-dynamodb": "^3.1075.0",
     "@aws-sdk/s3-request-presigner": "latest",
     "@codegenie/serverless-express": "^5.0.0",
+    "cors": "^2.8.6",
     "express": "latest",
     "js-tiktoken": "^1.0.21",
     "openai": "latest",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "latest",
+    "@types/cors": "^2.8.19",
     "@types/express": "latest",
     "@types/node": "latest",
     "esbuild": "latest",
