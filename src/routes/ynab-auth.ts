@@ -1,7 +1,7 @@
 import { Router, type Request, type Response, type NextFunction } from 'express';
 import { YnabCallbackSchema } from '../schemas.js';
 import { getUserId } from '../auth.js';
-import { exchangeCode } from '../lib/ynab.js';
+import { exchangeCode } from '../lib/ynab-client.js';
 
 export const ynabAuthRouter = Router();
 

@@ -5,6 +5,7 @@ import { uploadsRouter } from './routes/uploads.js';
 import { generateRouter } from './routes/generate.js';
 import { ynabAuthRouter } from './routes/ynab-auth.js';
 import { ynabRouter } from './routes/ynab.js';
+import { plansRouter } from './routes/plans.js';
 import { pushRouter } from './routes/push.js';
 
 export const app = express();
@@ -20,6 +21,7 @@ app.use('/uploads', uploadsRouter);
 app.use('/generate', generateRouter);
 app.use('/auth/ynab', ynabAuthRouter);
 app.use('/ynab', ynabRouter);
+app.use('/plans', plansRouter);
 app.use('/transactions/push', pushRouter);
 
 function hasStatusCode(err: unknown): err is Error & { statusCode: number } {

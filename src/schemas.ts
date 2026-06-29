@@ -63,9 +63,13 @@ export const PushRequestSchema = z.object({
   transactions: z.array(TransactionSchema).min(1),
 });
 
+export const YnabCreateTransactionsSchema = z.record(z.string(), z.unknown());
+
+
 export type UploadRequest = z.infer<typeof UploadRequestSchema>;
 export type GenerateRequest = z.infer<typeof GenerateRequestSchema>;
 export type Transaction = z.infer<typeof TransactionSchema>;
 export type Transactions = z.infer<typeof TransactionsSchema>;
 export type YnabCallback = z.infer<typeof YnabCallbackSchema>;
 export type PushRequest = z.infer<typeof PushRequestSchema>;
+export type YnabCreateTransactions = z.infer<typeof YnabCreateTransactionsSchema>;
