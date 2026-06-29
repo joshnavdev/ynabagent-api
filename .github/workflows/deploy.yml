@@ -30,5 +30,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - run: sam build
+        env:
+          PATH: ${{ github.workspace }}/node_modules/.bin:${{ env.PATH }}
 
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
