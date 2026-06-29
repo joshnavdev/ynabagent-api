@@ -1,0 +1,177 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ynabagent-api — YNAB transaction extraction (S3 upload + gpt-4o-mini)
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: api.ynabagent.josnavdev.lat
+    Description: Custom domain for the HTTP API
+  HostedZoneId:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /ynab/hosted-zone-id
+    Description: Route53 hosted zone ID for josnavdev.lat (resolved from SSM)
+  YnabRedirectUri:
+    Type: String
+    Description: Client page URL that receives the YNAB OAuth ?code= redirect
+
+Globals:
+  Function:
+    Runtime: nodejs24.x
+    Timeout: 30
+    MemorySize: 512
+
+Resources:
+  UploadBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - PUT
+              - GET
+            AllowedOrigins:
+              - '*'
+            ExposedHeaders:
+              - ETag
+            MaxAge: 3600
+
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: ynabagent-users
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 12
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref UserPool
+      ClientName: ynabagent-client
+      GenerateSecret: false
+      ExplicitAuthFlows:
+        - ALLOW_USER_PASSWORD_AUTH
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+
+  YnabTokensTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ynabagent-ynab-tokens
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+
+  ApiCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Auth:
+        Authorizers:
+          CognitoJwt:
+            IdentitySource: $request.header.Authorization
+            JwtConfiguration:
+              issuer: !Sub https://cognito-idp.${AWS::Region}.amazonaws.com/${UserPool}
+              audience:
+                - !Ref UserPoolClient
+        DefaultAuthorizer: CognitoJwt
+      Domain:
+        DomainName: !Ref DomainName
+        CertificateArn: !Ref ApiCertificate
+        EndpointConfiguration: REGIONAL
+        SecurityPolicy: TLS_1_2
+        Route53:
+          HostedZoneId: !Ref HostedZoneId
+
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda.handler
+      CodeUri: ./
+      Environment:
+        Variables:
+          UPLOAD_BUCKET: !Ref UploadBucket
+          OPENAI_API_KEY: '{{resolve:ssm:/ynab/openai-api-key:1}}'
+          OPENAI_MODEL: gpt-4o-mini
+          YNAB_TOKENS_TABLE: !Ref YnabTokensTable
+          YNAB_CLIENT_ID: '{{resolve:ssm:/ynab/oauth-client-id:1}}'
+          YNAB_CLIENT_SECRET: '{{resolve:ssm:/ynab/oauth-client-secret:1}}'
+          YNAB_REDIRECT_URI: !Ref YnabRedirectUri
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - s3:PutObject
+                - s3:GetObject
+                - s3:HeadObject
+              Resource: !Sub '${UploadBucket.Arn}/*'
+        - DynamoDBCrudPolicy:
+            TableName: !Ref YnabTokensTable
+      Events:
+        ProxyAll:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /{proxy+}
+            Method: ANY
+        Root:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /
+            Method: ANY
+        Health:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /health
+            Method: GET
+            Auth:
+              Authorizer: NONE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: node24
+        Format: esm
+        OutExtension:
+          - .js=.mjs
+        Sourcemap: true
+        EntryPoints:
+          - src/lambda.ts
+        Banner:
+          - js=import { createRequire } from 'module'; const require = createRequire(import.meta.url);
+
+Outputs:
+  ApiUrl:
+    Description: HTTP API endpoint URL (execute-api)
+    Value: !Sub 'https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com'
+  CustomDomainUrl:
+    Description: Custom domain URL
+    Value: !Sub 'https://${DomainName}'
+  UploadBucketName:
+    Description: S3 bucket for image uploads
+    Value: !Ref UploadBucket
+  UserPoolId:
+    Description: Cognito User Pool ID
+    Value: !Ref UserPool
+  UserPoolClientId:
+    Description: Cognito User Pool Client ID
+    Value: !Ref UserPoolClient

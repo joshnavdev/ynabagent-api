@@ -1,0 +1,366 @@
+# YNAB memory for: Principal (Restored on 2023-10-20)
+
+## My categories (only ever choose from this list)
+
+- Gastos FSCI > Ahorro MENSUAL
+- Gastos FSCI > Wynwood
+- Gastos FSCI > Gastos Fijos
+- Gastos FSCI > Inversiones
+- Gastos FSCI > Gastos Sin Culpa
+- Internal Master Category > Inflow: Ready to Assign
+- Internal Master Category > Deferred Income SubCategory
+- Internal Master Category > Uncategorized
+- Credit Card Payments > TC BBVA SIGNATURE
+- Credit Card Payments > TC IO
+- Credit Card Payments > TC IBK
+- Credit Card Payments > CUPON SAGA
+- Credit Card Payments > BCP TC 4910
+- Immediate Obligations > Alquiler
+- Immediate Obligations > Parrillada
+- Immediate Obligations > Seguro Vehicular
+- Immediate Obligations > Psicolo
+- Immediate Obligations > Gaseosa
+- Immediate Obligations > Familia
+- Immediate Obligations > Almuerzos Y Cenas
+- Immediate Obligations > Gas
+- Immediate Obligations > Suscripciones Mensuales
+- Immediate Obligations > Membresia gimnasio 
+- Immediate Obligations > Electricidad
+- Immediate Obligations > Celular
+- Immediate Obligations > Transporte
+- Immediate Obligations > Comidas Pequeñas
+- Immediate Obligations > Cosas De La Casa
+- Immediate Obligations > Limpieza
+- Immediate Obligations > Internet
+- Immediate Obligations > Blass
+- Immediate Obligations > Gastos Del Auto
+- Inversiones > AQUILARIA
+- Inversiones > AQUILARIA Gastos Fijos
+- Suscripciones Anuales > Suscripción Trimestral NHSS
+- Suscripciones Anuales > Subscripción anual YNAB 
+- True Expenses > Ropa
+- True Expenses > Regalos
+- True Expenses > Medical
+- True Expenses > Libros
+- True Expenses > Extras
+- True Expenses > Reposición De Ahorro
+- Debt Payments > MAZDA CX5
+- Debt Payments > CH SCOTIABANK
+- Debt Payments > Deudas 
+- Quality of Life Goals > Dentista
+- Quality of Life Goals > Impuestos
+- Quality of Life Goals > Perfumes
+- Quality of Life Goals > Mazda CX5
+- Quality of Life Goals > Trabajo
+- Quality of Life Goals > Vitaminas
+- Quality of Life Goals > Skincare
+- Quality of Life Goals > Auto Reparación
+- Quality of Life Goals > CTS
+- Quality of Life Goals > oficina
+- Quality of Life Goals > Ahorro Dolares
+- Quality of Life Goals > Estudios
+- Quality of Life Goals > Peluquería y relacionados 
+- Quality of Life Goals > Vacation
+- Quality of Life Goals > Casa
+- Quality of Life Goals > Emergencia
+- Just for Fun > Salidas
+- Just for Fun > Gaming
+- Just for Fun > Donaciones
+- Just for Fun > Pasatiempos
+- Prestamos > Préstamo Casa
+- Prestamos > Préstamo Temporal
+
+## Payee -> category history (how I usually categorize)
+
+Format: `payee` -> category  (times I've used it)
+
+- `Tienda` -> Comidas Pequeñas  (259)
+- `Tienda Gaseosa` -> Split  (154)
+- `Estacionamiento` -> Gastos Del Auto  (81)
+- `Tienda Acc` -> Comidas Pequeñas  (61)
+- `Rappi` -> Almuerzos Y Cenas  (60)
+- `Uber` -> Transporte  (59)
+- `Reconciliation Balance Adjustment` -> Inflow: Ready to Assign  (47)
+- `Farmacia` -> Medical  (46)
+- `Gasolinera` -> Gastos Del Auto  (42)
+- `Peaje` -> Gastos Del Auto  (36)
+- `Globant` -> Inflow: Ready to Assign  (30)
+- `Hamburgueseria` -> Almuerzos Y Cenas  (30)
+- `Mamá` -> Préstamo Temporal  (29)
+- `Joss` -> Regalos  (23)
+- `Alexis` -> Almuerzos Y Cenas  (21)
+- `Psicologo` -> Psicolo  (17)
+- `Lupe` -> Préstamo Temporal  (16)
+- `Calidda` -> Gas  (15)
+- `Chifa` -> Almuerzos Y Cenas  (14)
+- `Carlos Hermano` -> Préstamo Temporal  (14)
+- `Restaurante` -> Split  (13)
+- `Operador` -> Celular  (13)
+- `AWS` -> Suscripciones Mensuales  (12)
+- `spotify` -> Suscripciones Mensuales  (12)
+- `Claro` -> Internet  (12)
+- `Enel` -> Préstamo Temporal  (11)
+- `Win` -> Internet  (11)
+- `Netflix Y Otros` -> Suscripciones Mensuales  (11)
+- `cochera` -> Gastos Del Auto  (11)
+- `Carwash` -> Gastos Del Auto  (10)
+- `Yuly` -> Blass  (10)
+- `Panaderia` -> Almuerzos Y Cenas  (9)
+- `Netflix` -> Suscripciones Mensuales  (9)
+- `Tottus` -> Split  (9)
+- `Howdy` -> Inflow: Ready to Assign  (9)
+- `Polleria` -> Almuerzos Y Cenas  (8)
+- `Saga Falabella` -> Ropa  (8)
+- `Starting Balance` -> Inflow: Ready to Assign  (8)
+- `Cinemark` -> Split  (7)
+- `Bar` -> Split  (6)
+- `Smartfit` -> Membresia gimnasio  (6)
+- `Mercado` -> Almuerzos Y Cenas  (6)
+- `Tambo` -> Comidas Pequeñas  (6)
+- `Visa` -> Extras  (6)
+- `Otros` -> Extras  (5)
+- `Ten Ren` -> Salidas  (5)
+- `Wynwood` -> Inversiones  (5)
+- `Toño` -> Préstamo Temporal  (5)
+- `Trekking` -> Pasatiempos  (5)
+- `Sargento Pimienta` -> Pasatiempos  (5)
+- `Dentista` -> Dentista  (5)
+- `Starbucks` -> Salidas  (4)
+- `Municipalidad San Isidro` -> AQUILARIA  (4)
+- `Nexo` -> AQUILARIA Gastos Fijos  (4)
+- `Temu` -> Pasatiempos  (4)
+- `Dolar City` -> Cosas De La Casa  (4)
+- `CafeBar` -> Almuerzos Y Cenas  (4)
+- `Café Cuzco` -> Regalos  (4)
+- `Cafeteria` -> Split  (4)
+- `Sodimac` -> Casa  (4)
+- `Plaza Vea` -> Cosas De La Casa  (4)
+- `AFP` -> Inflow: Ready to Assign  (4)
+- `Autoland` -> Mazda CX5  (4)
+- `Cinepolis` -> Salidas  (4)
+- `Clínica` -> Medical  (4)
+- `Steam` -> Pasatiempos  (4)
+- `Albañil` -> Casa  (4)
+- `Peaje Viaje` -> Vacation  (4)
+- `Punta Cana` -> Vacation  (4)
+- `Hamburguesa` -> Comidas Pequeñas  (4)
+- `Itf` -> Mazda CX5  (3)
+- `Fridays` -> Split  (3)
+- `Limpieza Departamento` -> Limpieza  (3)
+- `Airbnb` -> Vacation  (3)
+- `Peluqueria` -> Peluquería y relacionados  (3)
+- `Skincare` -> Skincare  (3)
+- `Donación` -> Donaciones  (3)
+- `Youtube` -> Suscripciones Mensuales  (3)
+- `Loom` -> Trabajo  (3)
+- `Gary` -> Familia  (3)
+- `Gamarra` -> Regalos  (3)
+- `Siete Sopas` -> Split  (3)
+- `Rimac Seguro` -> Seguro Vehicular  (3)
+- `Mecanico` -> Mazda CX5  (3)
+- `Maria Almenara` -> Regalos  (3)
+- `Parrillada` -> Parrillada  (3)
+- `Playa` -> Pasatiempos  (3)
+- `Makro` -> Split  (3)
+- `Yulissa Lad` -> Inflow: Ready to Assign  (3)
+- `ACACIAS` -> Cuota ACACIAS  (2)
+- `LinkedIn` -> Suscripciones Mensuales  (2)
+- `SuperPet` -> Blass  (2)
+- `Anticucheria` -> Salidas  (2)
+- `Frutero` -> Split  (2)
+- `Emolientero` -> Almuerzos Y Cenas  (2)
+- `Cineplanet` -> Pasatiempos  (2)
+- `Pizzeria` -> Split  (2)
+- `Latam` -> Vacation  (2)
+- `Pelikano` -> oficina  (2)
+- `Heladeria` -> Comidas Pequeñas  (2)
+- `Wensy` -> Préstamo Temporal  (2)
+- `Antonella` -> Regalos  (2)
+- `Amazon` -> oficina  (2)
+- `Zara` -> Felicidades Joss  (2)
+- `Chilis` -> Split  (2)
+- `Nabila Home` -> Casa  (2)
+- `Metro` -> Split  (2)
+- `BCP Desgravamen` -> Inflow: Ready to Assign  (2)
+- `Oliver` -> Split  (2)
+- `Tori` -> Split  (2)
+- `Denis` -> Préstamo Temporal  (2)
+- `Listo` -> Almuerzos Y Cenas  (2)
+- `Edo Sushi Bar` -> Salidas  (2)
+- `Carbon` -> Regalos  (2)
+- `Boxiss` -> Pasatiempos  (2)
+- `Papá` -> Familia  (2)
+- `BairesDev` -> Inflow: Ready to Assign  (2)
+- `Ripley` -> Perfumes  (2)
+- `Joinnus` -> Pasatiempos  (2)
+- `Concierto` -> Pasatiempos  (2)
+- `Miniso` -> Cosas De La Casa  (2)
+- `Subway` -> Split  (2)
+- `Familia` -> Familia  (2)
+- `Peaje Salida` -> Salidas  (2)
+- `Tienda Salida` -> Salidas  (2)
+- `Iphone` -> iPhone  (2)
+- `Sanguchon Campesino` -> Almuerzos Y Cenas  (2)
+- `Nodaji` -> Salidas  (2)
+- `Sunarp` -> Extras  (2)
+- `Duty Free` -> Regalos  (2)
+- `Tienda Regalos` -> Regalos  (2)
+- `Alquiler` -> Alquiler  (2)
+- `Apparka Jockey` -> Gastos Del Auto  (2)
+- `Apparka Megaplaza` -> Gastos Del Auto  (2)
+- `RAPPI SAC` -> Almuerzos Y Cenas  (2)
+- `Violeta Tin` -> Comidas Pequeñas  (2)
+- `PYU*CINEMARK` -> Salidas  (2)
+- `Subscripciones` -> Suscripciones Mensuales  (2)
+- `Yolanda Rui` -> Limpieza  (2)
+- `IZI*ILAHUI PERU` -> Regalos  (2)
+- `Melissa Ric` -> Inflow: Ready to Assign  (2)
+- `Tequeños` -> Comidas Pequeñas  (2)
+- `rokys` -> Split  (1)
+- `Crepe` -> Salidas  (1)
+- `Mantenimiento` -> Mantenimiento ACACIAS  (1)
+- `KFC` -> Split  (1)
+- `Burger King` -> Almuerzos Y Cenas  (1)
+- `Oxxo` -> Split  (1)
+- `Librería` -> AQUILARIA  (1)
+- `Shawarma` -> Almuerzos Y Cenas  (1)
+- `Préstamos Interes` -> Split  (1)
+- `Maui` -> Split  (1)
+- `Johnny Rockets` -> Split  (1)
+- `Juan Electrico` -> Donaciones  (1)
+- `Amazon Prime` -> Suscripciones Mensuales  (1)
+- `Chocolate` -> Felicidades Joss  (1)
+- `Aldo` -> Felicidades Joss  (1)
+- `NHSS` -> Suscripción Trimestral NHSS  (1)
+- `Bembos` -> Split  (1)
+- `Coolbox` -> oficina  (1)
+- `Paraiso` -> oficina  (1)
+- `Melamina` -> Pasatiempos  (1)
+- `Ferreteria` -> Pasatiempos  (1)
+- `Shalom` -> Regalos  (1)
+- `Tienda Cuzco` -> Regalos  (1)
+- `Creperia` -> Salidas  (1)
+- `Británico` -> Estudios  (1)
+- `Shimaya` -> Split  (1)
+- `Chicharron` -> Split  (1)
+- `Sanna` -> Medical  (1)
+- `Joshua` -> Regalos  (1)
+- `Papa Jhons` -> Split  (1)
+- `Pichanga` -> Pasatiempos  (1)
+- `Pandora` -> Regalos  (1)
+- `EntradaYa` -> Pasatiempos  (1)
+- `YI` -> Préstamo Temporal  (1)
+- `Maluki` -> Split  (1)
+- `Soat` -> Gastos Del Auto  (1)
+- `Desayuno` -> Almuerzos Y Cenas  (1)
+- `Pastelería` -> Regalos  (1)
+- `Frutas` -> Cosas De La Casa  (1)
+- `Trámites` -> Extras  (1)
+- `JetBrain` -> Trabajo  (1)
+- `Vichy` -> Medical  (1)
+- `Boba` -> Split  (1)
+- `YNAB` -> Subscripción anual YNAB  (1)
+- `Pizza Hut` -> Split  (1)
+- `Internet` -> AQUILARIA Gastos Fijos  (1)
+- `Valentino` -> Préstamo Temporal  (1)
+- `Cerrajero` -> Casa  (1)
+- `Metropolitano` -> Transporte  (1)
+- `Auto` -> Gastos Del Auto  (1)
+- `Kindle` -> Libros  (1)
+- `Iza Motors` -> Auto Reparación  (1)
+- `Mari` -> Regalos  (1)
+- `Adriana` -> Regalos  (1)
+- `Lentes` -> Ropa  (1)
+- `Pagalo` -> Extras  (1)
+- `BCP` -> Mazda CX5  (1)
+- `Servicio Técnico` -> oficina  (1)
+- `Osaka` -> Split  (1)
+- `Juegos` -> Salidas  (1)
+- `Samsung` -> Gastos Del Auto  (1)
+- `Robo` -> Inflow: Ready to Assign  (1)
+- `Club` -> Vacation  (1)
+- `La Bodega` -> Split  (1)
+- `Pollada` -> Almuerzos Y Cenas  (1)
+- `PetShop` -> Blass  (1)
+- `Cevichería` -> Split  (1)
+- `UNMSM` -> Familia  (1)
+- `Servicio Streaming` -> Suscripciones Mensuales  (1)
+- `Coima` -> Ahorro MENSUAL  (1)
+- `Rosatel` -> Regalos  (1)
+- `Electricista` -> Casa  (1)
+- `Gordo` -> Parrillada  (1)
+- `Blanca` -> Parrillada  (1)
+- `Papas` -> Split  (1)
+- `Martin` -> Parrillada  (1)
+- `Alfred` -> Parrillada  (1)
+- `Djulia` -> Split  (1)
+- `Sofi` -> Split  (1)
+- `Atun Amigo` -> Parrillada  (1)
+- `Carniceria` -> Parrillada  (1)
+- `Miguel` -> Parrillada  (1)
+- `Puitiza` -> Parrillada  (1)
+- `Frutix` -> Almuerzos Y Cenas  (1)
+- `Makis` -> Split  (1)
+- `Postres` -> Salidas  (1)
+- `Rappi Turbo` -> Cosas De La Casa  (1)
+- `El Cesar` -> Split  (1)
+- `Ishop` -> Casa  (1)
+- `H&M` -> Ropa  (1)
+- `Iberica` -> Regalos  (1)
+- `Beso Frances` -> Regalos  (1)
+- `Tienda Japonesa` -> Salidas  (1)
+- `María Almenara` -> Regalos  (1)
+- `Teatro` -> Pasatiempos  (1)
+- `Policias` -> Extras  (1)
+- `Long Horn` -> Split  (1)
+- `Romi` -> Préstamo Temporal  (1)
+- `Wong` -> Pasatiempos  (1)
+- `Mecardo` -> Cosas De La Casa  (1)
+- `Psicologo Yuly` -> Regalos  (1)
+- `IKF 425 Tupac Amaru` -> Comidas Pequeñas  (1)
+- `Reconciliation` -> Reposición De Ahorro  (1)
+- `Infusionista` -> Salidas  (1)
+- `Falabella` -> Casa  (1)
+- `Boticas Hogar Y Salud` -> Medical  (1)
+- `Notaria Sobrevilla` -> Extras  (1)
+- `Lima Expresa A2A` -> Salidas  (1)
+- `Lima Expresa P10` -> Salidas  (1)
+- `Baño publico` -> Extras  (1)
+- `Pasquale San Borja` -> Almuerzos Y Cenas  (1)
+- `La Rambla` -> Gastos Del Auto  (1)
+- `Leidi` -> Préstamo Temporal  (1)
+- `Apparka Plaza San Miguel` -> Gastos Del Auto  (1)
+- `EESS Dennis` -> Gastos Del Auto  (1)
+- `Ideafab` -> Extras  (1)
+- `Restaurante Chanch` -> Almuerzos Y Cenas  (1)
+- `Google` -> Suscripciones Mensuales  (1)
+- `Auto Atendido Real P` -> Gastos Del Auto  (1)
+- `Ya Market` -> Comidas Pequeñas  (1)
+- `Crisol` -> Split  (1)
+- `HIPERMERCADOS METRO LN` -> Pasatiempos  (1)
+- `RIMAC REC VH USD` -> Seguro Vehicular  (1)
+- `Plin - Jose Coronel` -> Extras  (1)
+- `IZI*YA MARKET` -> Comidas Pequeñas  (1)
+- `CENTRO COMERCIAL PLAZA LIMA` -> Gastos Del Auto  (1)
+- `Blass` -> Blass  (1)
+- `IZI*CHIFA JIAN FU` -> Almuerzos Y Cenas  (1)
+- `Victor May` -> Extras  (1)
+- `FALABELLA SAN MIGUEL S` -> Regalos  (1)
+- `TAMBO MARSANO-C15` -> Cosas De La Casa  (1)
+- `1199 PVEA SAN MIGUEL` -> Comidas Pequeñas  (1)
+- `APPARKA PLAZA SAN MIGU` -> Gastos Del Auto  (1)
+- `cuota 3` -> Inflow: Ready to Assign  (1)
+- `B Y K PUNTO Y SAZON` -> Split  (1)
+- `GRIFO SAN MIGUEL` -> Gastos Del Auto  (1)
+- `Casa` -> Casa  (1)
+- `SCO SODIMAC NARANJAL 41` -> Casa  (1)
+- `SB046 - PLAZA NORTE` -> Salidas  (1)
+- `7 SOPAS PLAZA NORTE` -> Almuerzos Y Cenas  (1)
+- `CENTRO COMERCIAL PLAZA NO LIMA` -> Gastos Del Auto  (1)
+- `SKECHERS LARCO` -> Regalos  (1)
+- `MINISO LARCO` -> Regalos  (1)
+- `IZI*SEGURIPARK` -> Gastos Del Auto  (1)
+- `PLUZ000000450171` -> Electricidad  (1)
+- `Préstamo temporal` -> Préstamo Temporal  (1)
+- `Limpieza` -> Limpieza  (1)
+- `Feliz cumpleaños` -> Regalos  (1)
